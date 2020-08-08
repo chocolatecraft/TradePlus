@@ -21,18 +21,18 @@ public class PlayerPointsExtra extends Extra {
 
   @Override
   public double getMax(Player player) {
-    return playerPointsAPI.look(player.getUniqueId());
+    return playerPointsAPI.look(player.getName());
   }
 
   @Override
   public void onTradeEnd() {
     if (value1 > 0) {
-      playerPointsAPI.take(player1.getUniqueId(), (int) value1);
-      playerPointsAPI.give(player2.getUniqueId(), (int) (value1 - ((value1 / 100) * taxPercent)));
+      playerPointsAPI.take(player1.getName(), (int) value1);
+      playerPointsAPI.give(player2.getName(), (int) (value1 - ((value1 / 100) * taxPercent)));
     }
     if (value2 > 0) {
-      playerPointsAPI.take(player2.getUniqueId(), (int) value2);
-      playerPointsAPI.give(player1.getUniqueId(), (int) (value2 - ((value2 / 100) * taxPercent)));
+      playerPointsAPI.take(player2.getName(), (int) value2);
+      playerPointsAPI.give(player1.getName(), (int) (value2 - ((value2 / 100) * taxPercent)));
     }
   }
 
